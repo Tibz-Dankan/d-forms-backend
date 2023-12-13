@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("D_FORMS_DATABASE_URL")
+}
+
+model Postgraduate {
+  id                             Int       @id @default(autoincrement())
+  surname                        String    @db.Text
+  givenname                      String    @db.Text
+  othername                      String    @db.Text
+  title                          String    @db.Text
+  gender                         String    @db.Text
+  dateOfBirth                    String    @db.Text
+  maritalStatus                  String    @db.Text
+  religiousAffiliation           String    @db.Text
+  intake                         String    @db.Text
+  campus                         String    @db.Text
+  program                        String    @db.Text
+  nationality                    String    @db.Text
+  countyOfResidence              String    @db.Text
+  homeDistrict                   String    @db.Text
+  homeDiocese                    String    @db.Text
+  disability                     Json
+  contact                        Json
+  parentGuardian                 Json
+  educationBackground            Json
+  referee                        Json
+  otherQualification             Json
+  christianPhilosophyAffirmation Json
+  declaration                    Json
+  officialUseRecommendation      Json
+  employerRecord                 Json
+  courseChoiceWorkExperience     Json
+  waysIKnewAboutUCU              Json
+  whyUCU                         Json
+  // date
+  createdAt                      DateTime  @default(now())
+  updatedAt                      DateTime? @updatedAt
+
+  @@index([id])
+  @@map("_postgraduate")
+}
+
+// PRISMA COMMNANDS 
+
+// INITIALIZE PRISMA
+// npx prisma init --datasource-provider postgresql
+
+// APPLY CHANGES TO ACTUAL DATABASE 
+// npx prisma migrate dev --name test
+
+// GENERATE THE CLIENT TO INTERACT WITH THE DATABASE
+// npx prisma generate
+
+// TO EXPLORE AND MANUPLATE DATA USE PRISMA STUDIO
+// npx prisma studio

@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import logger from "morgan";
 import http from "http";
+import { errorController } from "./controllers/errorController";
+import { postgraduateRoutes } from "./routes/postgraduateRoutes";
 
 dotenv.config();
 
@@ -20,9 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger("dev"));
 
-// app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/postgraduate", postgraduateRoutes);
 
-// app.use(errorController);
+app.use(errorController);
 
 app.use("*", (req: Request, res: Response) => {
   res.status(404).json({
