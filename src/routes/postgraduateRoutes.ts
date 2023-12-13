@@ -1,8 +1,12 @@
 import express from "express";
-import { addPostgraduate } from "../controllers/postgraduateController";
+import {
+  addPostgraduateApplicant,
+  getPostgraduateApplicants,
+} from "../controllers/postgraduateController";
 
 const router = express.Router();
 
-router.post("/", addPostgraduate);
+router.post("/", addPostgraduateApplicant);
+router.get("/", getPostgraduateApplicants);
 
 export { router as postgraduateRoutes };

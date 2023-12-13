@@ -13,7 +13,7 @@ const extractItemKey = (item: any) => {
   return key;
 };
 
-export const addPostgraduate = asyncHandler(
+export const addPostgraduateApplicant = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const data = req.body.data;
 
@@ -47,5 +47,18 @@ export const addPostgraduate = asyncHandler(
     res
       .status(201)
       .json({ status: "success", message: "created successfully" });
+  }
+);
+
+export const getPostgraduateApplicants = asyncHandler(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const applicants = await Postgraduate.findMany({});
+    console.log("applicants", applicants);
+
+    res.status(200).json({
+      status: "success",
+      message: "fetched successfully",
+      data: applicants,
+    });
   }
 );
