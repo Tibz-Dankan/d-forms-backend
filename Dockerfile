@@ -10,8 +10,8 @@ COPY . .
 
 ENV NODE_ENV=production
 
-RUN  npm run migrate
+RUN npx  prisma migrate deploy
 
-RUN  npm prisma generate
+RUN npx  prisma generate
 
 CMD ["npm", "start"]   
