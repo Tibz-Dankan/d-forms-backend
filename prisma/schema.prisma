@@ -45,6 +45,34 @@ model Postgraduate {
   @@map("_postgraduate")
 }
 
+model Promotion {
+  id                                Int       @id @default(autoincrement())
+  familyname                        String    @db.Text
+  firstname                         String    @db.Text
+  maidenname                        String    @db.Text
+  gender                            String    @db.Text
+  email                             String    @db.Text
+  telephone                         String    @db.Text
+  dateOfBirth                       String    @db.Text
+  receiveDateTime                   String    @db.Text
+  receiveTime                       String    @db.Text
+  nationality                       String    @db.Text
+  campus                            Json
+  education                         Json
+  employmentRecord                  Json
+  faithAndUnderstandingChristianity Json
+  professionalBody                  Json
+  publication                       Json
+  references                        Json
+  statementOfResearch               Json
+  // date
+  createdAt                         DateTime  @default(now())
+  updatedAt                         DateTime? @updatedAt
+
+  @@index([id])
+  @@map("_promotion")
+}
+
 // PRISMA COMMNANDS 
 
 // INITIALIZE PRISMA

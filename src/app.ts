@@ -5,6 +5,7 @@ import logger from "morgan";
 import http from "http";
 import { errorController } from "./controllers/errorController";
 import { postgraduateRoutes } from "./routes/postgraduateRoutes";
+import { promotionRoutes } from "./routes/promotionRoutes";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger("dev"));
 
 app.use("/api/v1/postgraduate", postgraduateRoutes);
+app.use("/api/v1/promotion", promotionRoutes);
 
 app.use(errorController);
 
