@@ -45,7 +45,7 @@ CREATE TABLE "_promotion" (
     "email" TEXT NOT NULL,
     "telephone" TEXT NOT NULL,
     "dateOfBirth" TEXT NOT NULL,
-    "receiveDateTime" TEXT NOT NULL,
+    "receiveDate" TEXT NOT NULL,
     "receiveTime" TEXT NOT NULL,
     "nationality" TEXT NOT NULL,
     "campus" JSONB NOT NULL,

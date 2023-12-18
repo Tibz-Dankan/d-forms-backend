@@ -54,7 +54,7 @@ model Promotion {
   email                             String    @db.Text
   telephone                         String    @db.Text
   dateOfBirth                       String    @db.Text
-  receiveDateTime                   String    @db.Text
+  receiveDate                       String    @db.Text
   receiveTime                       String    @db.Text
   nationality                       String    @db.Text
   campus                            Json
